@@ -310,6 +310,8 @@ namespace Spritimator_Tao
             Gl.glBegin(Gl.GL_LINES);
             Gl.glVertex2i(-animViewport.Width / 2, vLineScroll.Value);
             Gl.glVertex2i(animViewport.Width / 2, vLineScroll.Value);
+            Gl.glVertex2i(hLineScroll.Value, -animViewport.Height / 2);
+            Gl.glVertex2i(hLineScroll.Value, animViewport.Height / 2);
             Gl.glEnd();
 
             Gl.glColor3i(1, 0, 0);
@@ -861,6 +863,7 @@ namespace Spritimator_Tao
             currentSprite.SetActiveSequence(cAnimSequence.SelectedIndex);
             //playing = false;
             playingFrame = 0;
+            sheetGLControl.Draw();
             //MessageBox.Show(currentSprite.GetCurrentSequence().Name);
         }
 
@@ -879,6 +882,11 @@ namespace Spritimator_Tao
         }
 
         private void vLineScroll_Scroll(object sender, ScrollEventArgs e)
+        {
+            sheetGLControl.Draw();
+        }
+
+        private void hLineScroll_Scroll(object sender, ScrollEventArgs e)
         {
             sheetGLControl.Draw();
         }
@@ -1032,6 +1040,7 @@ namespace Spritimator_Tao
         {
             sheetGLControl.Draw();
         }
+
 
 
 

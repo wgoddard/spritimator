@@ -103,6 +103,7 @@
             this.bFrameNext = new System.Windows.Forms.Button();
             this.bFramePrevious = new System.Windows.Forms.Button();
             this.sheetGLControl = new Tao.Platform.Windows.SimpleOpenGlControl();
+            this.hLineScroll = new System.Windows.Forms.HScrollBar();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tZoom)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -302,9 +303,9 @@
             this.groupBox1.Controls.Add(this.cDeleteAnimSeq);
             this.groupBox1.Controls.Add(this.bNewAnimSeq);
             this.groupBox1.Controls.Add(this.cAnimSequence);
-            this.groupBox1.Location = new System.Drawing.Point(670, 526);
+            this.groupBox1.Location = new System.Drawing.Point(596, 501);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(246, 97);
+            this.groupBox1.Size = new System.Drawing.Size(403, 189);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Animation Sequences";
@@ -780,7 +781,7 @@
             // 
             // bPlay
             // 
-            this.bPlay.Location = new System.Drawing.Point(783, 501);
+            this.bPlay.Location = new System.Drawing.Point(797, 348);
             this.bPlay.Name = "bPlay";
             this.bPlay.Size = new System.Drawing.Size(63, 19);
             this.bPlay.TabIndex = 14;
@@ -795,11 +796,12 @@
             this.vLineScroll.Name = "vLineScroll";
             this.vLineScroll.Size = new System.Drawing.Size(21, 280);
             this.vLineScroll.TabIndex = 4;
+            this.vLineScroll.Value = 100;
             this.vLineScroll.Scroll += new System.Windows.Forms.ScrollEventHandler(this.vLineScroll_Scroll);
             // 
             // bFrameNext
             // 
-            this.bFrameNext.Location = new System.Drawing.Point(853, 501);
+            this.bFrameNext.Location = new System.Drawing.Point(867, 348);
             this.bFrameNext.Name = "bFrameNext";
             this.bFrameNext.Size = new System.Drawing.Size(34, 19);
             this.bFrameNext.TabIndex = 15;
@@ -809,7 +811,7 @@
             // 
             // bFramePrevious
             // 
-            this.bFramePrevious.Location = new System.Drawing.Point(743, 501);
+            this.bFramePrevious.Location = new System.Drawing.Point(757, 348);
             this.bFramePrevious.Name = "bFramePrevious";
             this.bFramePrevious.Size = new System.Drawing.Size(34, 19);
             this.bFramePrevious.TabIndex = 16;
@@ -838,11 +840,22 @@
             this.sheetGLControl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.sheetGLControl_MouseDown);
             this.sheetGLControl.MouseUp += new System.Windows.Forms.MouseEventHandler(this.sheetGLControl_MouseUp);
             // 
+            // hLineScroll
+            // 
+            this.hLineScroll.Location = new System.Drawing.Point(670, 316);
+            this.hLineScroll.Minimum = -100;
+            this.hLineScroll.Name = "hLineScroll";
+            this.hLineScroll.Size = new System.Drawing.Size(300, 18);
+            this.hLineScroll.TabIndex = 17;
+            this.hLineScroll.Value = 100;
+            this.hLineScroll.Scroll += new System.Windows.Forms.ScrollEventHandler(this.hLineScroll_Scroll);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 702);
+            this.Controls.Add(this.hLineScroll);
             this.Controls.Add(this.bFramePrevious);
             this.Controls.Add(this.bFrameNext);
             this.Controls.Add(this.menuStrip1);
@@ -951,6 +964,7 @@
         private System.Windows.Forms.Button bFrameNext;
         private System.Windows.Forms.Button bFramePrevious;
         private Tao.Platform.Windows.SimpleOpenGlControl sheetGLControl;
+        private System.Windows.Forms.HScrollBar hLineScroll;
     }
 }
 
