@@ -236,6 +236,7 @@ namespace Spritimator_Tao
             Gl.glMatrixMode(Gl.GL_MODELVIEW);
             Gl.glViewport(animViewport.X, animViewport.Y, animViewport.Width, animViewport.Height);
 
+
             if (currentSprite != null && currentSprite.CurrentSequence.FrameCount > 0)
             {
                 long now = DateTime.Now.Ticks;
@@ -258,6 +259,16 @@ namespace Spritimator_Tao
                     frame = currentSprite.CurrentSequence.Frames[playingFrame];
                 else
                     frame = preview;
+
+                Gl.glPushMatrix();
+                if (frame.XScale != 1 || frame.YScale != 1)
+                {
+                    Gl.glScaled(frame.XScale, frame.YScale, 0);
+                    //Gl.glMatrixMode(Gl.GL_PROJECTION);
+                    //Gl.glLoadIdentity();
+                    //Gl.glOrtho(-animViewport.Width / 2 * frame.XScale, animViewport.Width / 2, animViewport.Height / 2, -animViewport.Height / 2, 0, 1.0);
+                    //Gl.glMatrixMode(Gl.GL_MODELVIEW);
+                }
 
                 cHeight = animViewport.Height;
                 cWidth = animViewport.Width;
@@ -294,6 +305,8 @@ namespace Spritimator_Tao
 
 
                 Gl.glEnd();
+
+                Gl.glPopMatrix();
 
                 if (preview != null)
                     preview = null;
@@ -558,6 +571,7 @@ namespace Spritimator_Tao
 
         private void bPlay_Click(object sender, EventArgs e)
         {
+            cFrameEditMode.Checked = false;
             if (currentSprite == null || currentSprite.CurrentSequence == null)
                 return;
 
@@ -929,7 +943,7 @@ namespace Spritimator_Tao
             if (value)
             {
                 playing = false;
-                bPlay.Enabled = false;
+                //bPlay.Enabled = false;
                 bPreviewFrame.Enabled = true;
                 bFrameDelete.Enabled = true;
                 bApplyFrame.Enabled = true;
@@ -940,7 +954,7 @@ namespace Spritimator_Tao
             }
             else
             {
-                bPlay.Enabled = true;
+                //bPlay.Enabled = true;
                 bPreviewFrame.Enabled = false;
                 bFrameDelete.Enabled = false;
                 bApplyFrame.Enabled = false;

@@ -59,9 +59,17 @@ namespace Spritimator_Tao
                 {
                     currentSequence.ReturnLoopFrame = int.Parse(seq.GetAttribute("Return_Loop_Frame"));
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     //MessageBox.Show("Sequence didn't have a return loop frame id");
+                }
+                try
+                {
+                    currentSequence.Loops = int.Parse(seq.GetAttribute("Loops")) == 0 ? false : true;
+                }
+                catch (Exception)
+                {
+                    currentSequence.Loops = true;
                 }
                 sequences.Add(currentSequence);
 
@@ -177,8 +185,9 @@ namespace Spritimator_Tao
                 {
                     XmlElement seqNode = xmlDoc.CreateElement("sequence");
                     seqNode.SetAttribute("Name", seq.Name);
-                    seqNode.SetAttribute("Frames", seq.FrameCount.ToString());
+                    //seqNode.SetAttribute("Frames", seq.FrameCount.ToString());
                     seqNode.SetAttribute("Return_Loop_Frame", seq.ReturnLoopFrame.ToString());
+                    seqNode.SetAttribute("Loops", (seq.Loops ? 1 : 0).ToString());
                     //XmlElement seqNameE = xmlDoc.CreateElement("name");
                     //seqNode.AppendChild(seqNameE);
                    // XmlText seqName = xmlDoc.CreateTextNode(seq.Name);

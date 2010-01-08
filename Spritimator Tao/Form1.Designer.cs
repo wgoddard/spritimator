@@ -303,9 +303,9 @@
             this.groupBox1.Controls.Add(this.cDeleteAnimSeq);
             this.groupBox1.Controls.Add(this.bNewAnimSeq);
             this.groupBox1.Controls.Add(this.cAnimSequence);
-            this.groupBox1.Location = new System.Drawing.Point(596, 501);
+            this.groupBox1.Location = new System.Drawing.Point(700, 502);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(403, 189);
+            this.groupBox1.Size = new System.Drawing.Size(253, 104);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Animation Sequences";
