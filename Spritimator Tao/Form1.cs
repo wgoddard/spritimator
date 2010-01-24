@@ -131,6 +131,7 @@ namespace Spritimator_Tao
             Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_MAG_FILTER, Gl.GL_LINEAR);
             Gl.glBlendFunc(Gl.GL_SRC_ALPHA, Gl.GL_ONE_MINUS_SRC_ALPHA);
             Gl.glDisable(Gl.GL_DEPTH_TEST);
+            Gl.glEnable(Gl.GL_TEXTURE_2D);
             Gl.glEnable(Gl.GL_BLEND);
 
         }
@@ -877,6 +878,7 @@ namespace Spritimator_Tao
             currentSprite.SetActiveSequence(cAnimSequence.SelectedIndex);
             //playing = false;
             playingFrame = 0;
+            propertyGrid1.SelectedObject = currentSprite.CurrentSequence;
             sheetGLControl.Draw();
             //MessageBox.Show(currentSprite.GetCurrentSequence().Name);
         }

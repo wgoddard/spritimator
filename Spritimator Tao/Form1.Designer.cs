@@ -104,6 +104,7 @@
             this.bFramePrevious = new System.Windows.Forms.Button();
             this.sheetGLControl = new Tao.Platform.Windows.SimpleOpenGlControl();
             this.hLineScroll = new System.Windows.Forms.HScrollBar();
+            this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tZoom)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -303,7 +304,7 @@
             this.groupBox1.Controls.Add(this.cDeleteAnimSeq);
             this.groupBox1.Controls.Add(this.bNewAnimSeq);
             this.groupBox1.Controls.Add(this.cAnimSequence);
-            this.groupBox1.Location = new System.Drawing.Point(700, 502);
+            this.groupBox1.Location = new System.Drawing.Point(693, 391);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(253, 104);
             this.groupBox1.TabIndex = 12;
@@ -850,11 +851,19 @@
             this.hLineScroll.Value = 100;
             this.hLineScroll.Scroll += new System.Windows.Forms.ScrollEventHandler(this.hLineScroll_Scroll);
             // 
+            // propertyGrid1
+            // 
+            this.propertyGrid1.Location = new System.Drawing.Point(641, 519);
+            this.propertyGrid1.Name = "propertyGrid1";
+            this.propertyGrid1.Size = new System.Drawing.Size(328, 147);
+            this.propertyGrid1.TabIndex = 18;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 702);
+            this.Controls.Add(this.propertyGrid1);
             this.Controls.Add(this.hLineScroll);
             this.Controls.Add(this.bFramePrevious);
             this.Controls.Add(this.bFrameNext);
@@ -965,6 +974,7 @@
         private System.Windows.Forms.Button bFramePrevious;
         private Tao.Platform.Windows.SimpleOpenGlControl sheetGLControl;
         private System.Windows.Forms.HScrollBar hLineScroll;
+        private System.Windows.Forms.PropertyGrid propertyGrid1;
     }
 }
 
