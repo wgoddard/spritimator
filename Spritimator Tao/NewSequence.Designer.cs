@@ -1,6 +1,6 @@
 ﻿namespace Spritimator_Tao
 {
-    partial class Form2
+    partial class NewSequence
     {
         /// <summary>
         /// Required designer variable.

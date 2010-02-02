@@ -9,11 +9,11 @@ using System.Windows.Forms;
 
 namespace Spritimator_Tao
 {
-    public partial class Form2 : Form
+    public partial class NewSequence : Form
     {
         public string SequenceName;
 
-        public Form2()
+        public NewSequence()
         {
             InitializeComponent();
         }

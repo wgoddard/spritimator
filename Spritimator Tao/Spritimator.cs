@@ -14,7 +14,7 @@ using Tao.Platform.Windows;
 
 namespace Spritimator_Tao
 {
-    public partial class Form1 : Form
+    public partial class Spritimator : Form
     {
         long start; //start time for animation sequence
         int playingFrame; //current frame to show on screen
@@ -34,7 +34,7 @@ namespace Spritimator_Tao
         Rectangle sheetViewport;
         Rectangle animViewport;
 
-        public Form1()
+        public Spritimator()
         {
             InitializeComponent();
             sheetGLControl.InitializeContexts();
@@ -50,7 +50,7 @@ namespace Spritimator_Tao
             currentTexture = new Texture();
         }
 
-        ~Form1()
+        ~Spritimator()
         {
             sheetGLControl.DestroyContexts();
         }
@@ -862,7 +862,7 @@ namespace Spritimator_Tao
                     return;
                 }
 
-            Form2 temp = new Form2();
+            NewSequence temp = new NewSequence();
             //temp.ShowDialog();
             //if (temp.res
             DialogResult r = temp.ShowDialog();

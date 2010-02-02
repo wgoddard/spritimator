@@ -93,17 +93,17 @@
     <Compile Include="EditSequence.Designer.cs">
       <DependentUpon>EditSequence.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Spritimator.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Spritimator.Designer.cs">
+      <DependentUpon>Spritimator.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="NewSequence.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="NewSequence.Designer.cs">
+      <DependentUpon>NewSequence.cs</DependentUpon>
     </Compile>
     <Compile Include="Frame.cs" />
     <Compile Include="Program.cs" />
@@ -120,12 +120,12 @@
       <DependentUpon>EditSequence.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Spritimator.resx">
+      <DependentUpon>Spritimator.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="NewSequence.resx">
+      <DependentUpon>NewSequence.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
