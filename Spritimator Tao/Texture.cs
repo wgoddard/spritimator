@@ -34,6 +34,7 @@ namespace Spritimator_Tao
            // Il.ilDeleteImage(images[0]);
 
             textureID = Ilut.ilutGLLoadImage(filename);
+            Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_MAG_FILTER, Gl.GL_NEAREST);
 
             //Gl.glBindTexture(Gl.GL_TEXTURE_2D, textureID);
 

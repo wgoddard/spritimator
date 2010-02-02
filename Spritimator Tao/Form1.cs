@@ -128,7 +128,7 @@ namespace Spritimator_Tao
             //sheetGLControl.MakeCurrent();
 
             Gl.glClearColor(240.0f / 255.0f, 240.0f / 255.0f, 240.0f / 255.0f, 0);
-            Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_MAG_FILTER, Gl.GL_LINEAR);
+
             Gl.glBlendFunc(Gl.GL_SRC_ALPHA, Gl.GL_ONE_MINUS_SRC_ALPHA);
             Gl.glDisable(Gl.GL_DEPTH_TEST);
             Gl.glEnable(Gl.GL_TEXTURE_2D);
