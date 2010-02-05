@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Spritimator")]
-[assembly: AssemblyDescription("goddard.william@gmail.com")]
+[assembly: AssemblyDescription("A sprite animation tool. \n\rhttp://gamehatchlings.com\n\r\n\rgoddard.william@gmail.com")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Game Hatchlings")]
 [assembly: AssemblyProduct("Spritimator")]
-[assembly: AssemblyCopyright("Copyright © William Goddard 2009")]
+[assembly: AssemblyCopyright("Copyright © William Goddard 2010")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.5.0.0")]
-[assembly: AssemblyFileVersion("0.5.0.0")]
+[assembly: AssemblyVersion("0.5.1.0")]
+[assembly: AssemblyFileVersion("0.5.1.0")]

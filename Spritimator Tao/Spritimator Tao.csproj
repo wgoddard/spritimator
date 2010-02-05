@@ -12,6 +12,7 @@
     <AssemblyName>Spritimator Tao</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <ApplicationIcon>Retro Mario World.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -148,6 +149,9 @@
     </Compile>
     <Compile Include="Sprite.cs" />
     <Compile Include="Texture.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Retro Mario World.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
