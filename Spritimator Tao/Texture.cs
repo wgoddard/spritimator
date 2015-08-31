@@ -1,12 +1,12 @@
 ﻿using System;
 
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Drawing.Imaging;
 using Tao.OpenGl;
-using Tao.DevIl;
+using OpenTK.Graphics.OpenGL;
 //using Tao.Platform.Windows;
 
 namespace Spritimator_Tao
@@ -28,18 +28,45 @@ namespace Spritimator_Tao
         Point startMouse = new Point();
         Point finishMouse = new Point(0, 0);
 
+        int LoadTexture(string filename)
+        {
+            if (String.IsNullOrEmpty(filename))
+                throw new ArgumentException(filename);
+
+            int id = GL.GenTexture();
+            GL.BindTexture(TextureTarget.Texture2D, id);
+
+            // We will not upload mipmaps, so disable mipmapping (otherwise the texture will not appear).
+            // We can use GL.GenerateMipmaps() or GL.Ext.GenerateMipmaps() to create
+            // mipmaps automatically. In that case, use TextureMinFilter.LinearMipmapLinear to enable them.
+            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Linear);
+            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Linear);
+
+            Bitmap bmp = new Bitmap(filename);
+            BitmapData bmp_data = bmp.LockBits(new Rectangle(0, 0, bmp.Width, bmp.Height), ImageLockMode.ReadOnly, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+
+            width = bmp.Width;
+            height = bmp.Height;
+
+            GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, bmp_data.Width, bmp_data.Height, 0,
+                OpenTK.Graphics.OpenGL.PixelFormat.Bgra, PixelType.UnsignedByte, bmp_data.Scan0);
+
+            bmp.UnlockBits(bmp_data);
+
+            return id;
+        }
+
         public Texture(string file_name, int framewidth, int frameheight)
         {
+            textureID = LoadTexture(file_name);
             filename = file_name;
+
            // Il.ilDeleteImage(images[0]);
 
-            textureID = Ilut.ilutGLLoadImage(filename);
             Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_MAG_FILTER, Gl.GL_NEAREST);
 
             //Gl.glBindTexture(Gl.GL_TEXTURE_2D, textureID);
 
-            width = Il.ilGetInteger(Il.IL_IMAGE_WIDTH);
-            height = Il.ilGetInteger(Il.IL_IMAGE_HEIGHT);
 
             hdiff = width - framewidth;
             vdiff = height - frameheight;
@@ -49,7 +76,7 @@ namespace Spritimator_Tao
         ~Texture()
         {
             //Ilu.iluDeleteImage(textureID);
-            Il.ilDeleteImage(textureID);
+           // Il.ilDeleteImage(textureID);
         }
 
         public Texture()

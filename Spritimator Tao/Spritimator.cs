@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using System.Xml;
 using Tao.OpenGl;
-using Tao.DevIl;
 using Tao.Platform.Windows;
+//using Tao.DevIl;
+
 
 namespace Spritimator_Tao
 {
@@ -39,11 +39,11 @@ namespace Spritimator_Tao
             InitializeComponent();
             sheetGLControl.InitializeContexts();
 
-            Il.ilInit();
-            Ilu.iluInit();
-            Ilut.ilutInit();
-            Ilut.ilutEnable(Ilut.ILUT_OPENGL_CONV); 
-            Ilut.ilutRenderer(Ilut.ILUT_OPENGL);
+          //  Il.ilInit();
+           // Ilu.iluInit();
+           // Ilut.ilutInit();
+           // Ilut.ilutEnable(Ilut.ILUT_OPENGL_CONV); 
+            //Ilut.ilutRenderer(Ilut.ILUT_OPENGL);
 
             sheetViewport = new Rectangle(0, sheetGLControl.Height - (int)(415.0 / 740.0 * sheetGLControl.Height), (int)(613.0 / 1024.0 * sheetGLControl.Width), (int)(415.0 / 740.0 * sheetGLControl.Height));
             animViewport = new Rectangle((int)(670.0 / 1024.0 * sheetGLControl.Width), sheetGLControl.Height - (int)(280.0 / 740.0 * sheetGLControl.Height) - 10, (int)(300.0 / 1024.0 * sheetGLControl.Width), (int)(280.0 / 740.0 * sheetGLControl.Height));

@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Spritimator")]
-[assembly: AssemblyDescription("A sprite animation tool. \n\rhttp://gamehatchlings.com\n\r\n\rgoddard.william@gmail.com")]
+[assembly: AssemblyDescription("A sprite animation tool. \n\rhttp://wgoddard.com\n\r\n\rgoddard.william@gmail.com")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Game Hatchlings")]
+[assembly: AssemblyCompany("William Goddard")]
 [assembly: AssemblyProduct("Spritimator")]
-[assembly: AssemblyCopyright("Copyright © William Goddard 2010")]
+[assembly: AssemblyCopyright("Copyright © William Goddard 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

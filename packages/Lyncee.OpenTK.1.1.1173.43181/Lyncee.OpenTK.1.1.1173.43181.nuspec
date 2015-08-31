@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Lyncee.OpenTK</id>
+    <version>1.1.1173.43181</version>
+    <title>OpenTK</title>
+    <authors>OpenTK team</authors>
+    <owners>OpenTK team</owners>
+    <licenseUrl>http://www.opentk.com/project/license</licenseUrl>
+    <projectUrl>http://www.opentk.com/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Unofficial OpenTK Package</description>
+  </metadata>
+</package>
