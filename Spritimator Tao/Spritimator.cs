@@ -165,16 +165,16 @@ namespace Spritimator_Tao
             //Gl.glColor3f(1.0f, 1.0f, 1.0f);
             Gl.glBegin(Gl.GL_QUADS);
 
-                Gl.glTexCoord2i(0, 0);
+                Gl.glTexCoord2i(0, 1);
                 Gl.glVertex2i(-realHO, realHeight - realVO);
 
-                Gl.glTexCoord2i(1, 0);
+                Gl.glTexCoord2i(1, 1);
                 Gl.glVertex2i(realWidth - realHO, realHeight - realVO);
 
-                Gl.glTexCoord2i(1, 1);
+                Gl.glTexCoord2i(1, 0);
                 Gl.glVertex2i(realWidth - realHO, -realVO);
 
-                Gl.glTexCoord2i(0, 1);
+                Gl.glTexCoord2i(0, 0);
                 Gl.glVertex2i(-realHO, -realVO);
 
             Gl.glEnd();
@@ -207,24 +207,33 @@ namespace Spritimator_Tao
 
             if (cFrameMulti.Checked == true)
             {
-                int boxes = int.Parse(tFrameNumber.Text);
-                int spacing = int.Parse(tFrameXSpacing.Text);
+
+                int boxes = 0;
+                int.TryParse(tFrameNumber.Text, out boxes);
+                if (boxes <= 0)
+                {
+                    boxes = 1;
+                }
+                int spacing = 0;
+                int.TryParse(tFrameXSpacing.Text, out spacing);
+                if (spacing < 0) spacing = 0;
 
                 Gl.glBegin(Gl.GL_QUADS);
-                while (boxes > 0)
+
+                for (int i = 0; i < boxes; ++ i )
                 {
-                    realHO += spacing + realWidth;
-                    if (realHO + realWidth > currentTexture.Width)
+                    int boxHO = realHO + i * (spacing + realWidth);
+                    if (boxHO + realWidth > currentTexture.Width)
                     {
-                        realHO = 0;
+                        boxHO = 0;
                         realVO += realHeight;
                     }
-                    Gl.glVertex2i(realHO, realHeight + realVO);
-                    Gl.glVertex2i(realWidth + realHO, realHeight + realVO);
-                    Gl.glVertex2i(realWidth + realHO, realVO);
-                    Gl.glVertex2i(realHO, realVO);
-                    boxes--;
+                    Gl.glVertex2i(boxHO, realHeight + realVO);
+                    Gl.glVertex2i(realWidth + boxHO, realHeight + realVO);
+                    Gl.glVertex2i(realWidth + boxHO, realVO);
+                    Gl.glVertex2i(boxHO, realVO);
                 }
+
                 Gl.glEnd();
             }
 
@@ -287,9 +296,9 @@ namespace Spritimator_Tao
 
                 float x0, y0, x1, y1;
                 x0 = (float)frame.XSource / frame.Texture.Width;
-                y0 = 1.0f - (float)frame.YSource / frame.Texture.Height;
+                y0 = (float)frame.YSource / frame.Texture.Height;
                 x1 = (float)(frame.XSource + frame.Width) / frame.Texture.Width;
-                y1 = 1.0f - (float)(frame.YSource + frame.Height) / frame.Texture.Height;
+                y1 = (float)(frame.YSource + frame.Height) / frame.Texture.Height;
 
 
                 Gl.glTexCoord2f(x0, y1);
@@ -563,11 +572,39 @@ namespace Spritimator_Tao
                 return;
             }
 
-            Frame temp = new Frame(double.Parse(tFrameTime.Text), double.Parse(tFrameRotation.Text), cHFlip.Checked, cVFlip.Checked,
-            double.Parse(tFrameXScale.Text), double.Parse(tFrameYScale.Text), int.Parse(tFrameXSource.Text), int.Parse(tFrameYSource.Text), int.Parse(tFrameWidth.Text),
-            int.Parse(tFrameHeight.Text), double.Parse(tFrameXAnchor.Text), double.Parse(tFrameYAnchor.Text), currentTexture);
+            int width = 1;
+            int.TryParse(tFrameWidth.Text, out width);
+            double xAnchor = 0;
+            double.TryParse(tFrameXAnchor.Text, out xAnchor);
+            double yAnchor = 0;
+            double.TryParse(tFrameYAnchor.Text, out yAnchor);
 
-            currentSprite.CurrentSequence.AddFrame(temp);
+            if (cFrameMulti.Checked)
+            {
+                int boxes = 1;
+                int.TryParse(tFrameNumber.Text, out boxes);
+                int spacing = 0;
+                int.TryParse(tFrameXSpacing.Text, out spacing);
+
+                for (int i = 0; i < boxes; ++i)
+                {
+                 
+                    Frame temp = new Frame(double.Parse(tFrameTime.Text), double.Parse(tFrameRotation.Text), cHFlip.Checked, cVFlip.Checked,
+                    double.Parse(tFrameXScale.Text), double.Parse(tFrameYScale.Text), int.Parse(tFrameXSource.Text) +  (width + spacing) * i, int.Parse(tFrameYSource.Text), width,
+                    int.Parse(tFrameHeight.Text), xAnchor, yAnchor, currentTexture);
+
+                    currentSprite.CurrentSequence.AddFrame(temp);
+                }
+
+            }
+            else
+            {
+                Frame temp = new Frame(double.Parse(tFrameTime.Text), double.Parse(tFrameRotation.Text), cHFlip.Checked, cVFlip.Checked,
+                double.Parse(tFrameXScale.Text), double.Parse(tFrameYScale.Text), int.Parse(tFrameXSource.Text), int.Parse(tFrameYSource.Text), width,
+                int.Parse(tFrameHeight.Text), xAnchor, yAnchor, currentTexture);
+
+                currentSprite.CurrentSequence.AddFrame(temp);
+            }
         }
 
         private void bPlay_Click(object sender, EventArgs e)
